@@ -1,3 +1,5 @@
 ## Pasos para completar el proyecto de reserva hotelera
 
--Limpieza de la plantilla
+- Limpieza de la plantilla,
+- Trabajamos en componentes <App.js/>, <Header/>, <Home/>, <SearchPage/>,
+  -Instalar enrutador, react-router-dom

@@ -1,9 +1,14 @@
 import { Counter } from "./features/counter/Counter";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
     <div>
-      <h1>hola</h1>
+      <Header />
+      <Home />
+      <SearchPage />
     </div>
   );
 }
