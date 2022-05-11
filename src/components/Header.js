@@ -1,7 +1,11 @@
 import {
   AppBar,
   Avatar,
+  Drawer,
+  IconButton,
   InputBase,
+  List,
+  ListItem,
   makeStyles,
   Toolbar,
   Typography,
@@ -9,12 +13,58 @@ import {
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import SearchIcon from "@material-ui/icons/Search";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const Header = () => {
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const classes = useStyle();
 
-  const displayMobile = () => {};
+  const displayMobile = () => {
+    const handleDrawerOpen = () => {
+      setDrawerOpen(true);
+    };
+    const handleDrawerClose = () => {
+      setDrawerOpen(false);
+    };
+    const headersData = ["Mi Cuenta", "Reservas Anteriores", "Cerrar Sesion"];
+
+    const getDrawerChoices = () => {
+      return headersData.map((data) => {
+        return (
+          <List>
+            <ListItem>{data}</ListItem>
+          </List>
+        );
+      });
+    };
+
+    return (
+      <Toolbar>
+        <IconButton
+          {...{
+            edge: "start",
+            color: "#ccc",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
+            onClick: handleDrawerOpen,
+          }}
+        >
+          <MenuIcon fontSize="large" />
+        </IconButton>
+        <Drawer
+          {...{
+            anchor: "left",
+            open: handleDrawerOpen,
+            onClose: handleDrawerClose,
+          }}
+        >
+          <div>{getDrawerChoices()}</div>
+        </Drawer>
+      </Toolbar>
+    );
+  };
+
   const displayDesktop = () => (
     <Toolbar className={classes.toolbar}>
       <img src={logo} className={classes.logo} />

@@ -4,3 +4,4 @@
 - Trabajamos en componentes App.js, Header, Home, SearchPage.
 - Instalar enrutador, react-router-dom.
 - Trabajamos en el Header: funciones displaDesktop() y displayMobile()
+-
