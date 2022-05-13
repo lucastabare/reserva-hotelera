@@ -10,15 +10,23 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [mobile, setMobile] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const classes = useStyle();
+
+  useEffect(() => {
+    const resposibe = () =>
+      window.innerWidth < 900 ? setMobile(true) : setMobile(false);
+    resposibe();
+    window.addEventListener("resize", () => resposibe());
+  }, []);
 
   const displayMobile = () => {
     const handleDrawerOpen = () => {
@@ -39,8 +47,9 @@ const Header = () => {
       });
     };
 
+    //Pantalla Chicas
     return (
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <IconButton
           {...{
             edge: "start",
@@ -55,19 +64,29 @@ const Header = () => {
         <Drawer
           {...{
             anchor: "left",
-            open: handleDrawerOpen,
+            open: drawerOpen,
             onClose: handleDrawerClose,
           }}
         >
           <div>{getDrawerChoices()}</div>
         </Drawer>
+        <Link to="/">
+          <img src={logo} className={classes.logo} alt="logo" />
+        </Link>
+        <div className={classes.right}>
+          <Typography>Iniciar Sesion</Typography>
+          <Avatar className={classes.avatar} />
+        </div>
       </Toolbar>
     );
   };
 
+  //Pantallas grandes
   const displayDesktop = () => (
     <Toolbar className={classes.toolbar}>
-      <img src={logo} className={classes.logo} />
+      <Link to="/">
+        <img src={logo} className={classes.logo} alt="logo" />
+      </Link>
       <div className={classes.center}>
         <InputBase
           fullWidth
@@ -90,6 +109,7 @@ const Header = () => {
   );
 };
 
+//Estilos:
 const useStyle = makeStyles((theme) => ({
   root: {
     position: "sticky",
