@@ -1,11 +1,34 @@
-import React from "react";
+import { CssBaseline } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import Banner from "./Banner";
+import RoomCard from "./RoomCard";
+import Date from "./DatePicker";
 
 const Home = () => {
+  const classes = useStyles();
+
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <CssBaseline />
+      <div className={classes.root}>
+        <div className={classes.dates}>
+          <Date />
+        </div>
+        <Banner />
+        <div className={classes.section}>
+          <RoomCard />
+          <RoomCard />
+          <RoomCard />
+          <RoomCard />
+        </div>
+      </div>
+    </>
   );
 };
+//Estilos
+const useStyles = makeStyles((theme) => {
+  root: {
+  }
+});
 
 export default Home;
