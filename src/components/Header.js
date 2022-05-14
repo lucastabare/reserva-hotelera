@@ -116,7 +116,7 @@ const styles = makeStyles((theme) => ({
     top: 0,
     backgroundColor: "#86868B",
     zIndex: 99,
-    width: "100vw",
+    width: "100%",
   },
   toolbar: {
     display: "flex",

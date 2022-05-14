@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div className={classes.root}>
       <div className={classes.info}>
-        <Typography variant="h2">Planifica tu escapada ...</Typography>
+        <Typography variant="h2">Planifica tu escapada</Typography>
         <Button variant="contained">Consulta nuestras habitaciones</Button>
       </div>
     </div>
@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      justifyContent: "center",
+    },
   },
   info: {
     backgroundColor: "#000",
@@ -41,6 +45,11 @@ const useStyles = makeStyles((theme) => ({
     "& button:hover": {
       backgroundColor: "#fff",
       color: "rgba(255,103,31)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "300px",
+      backgroundColor: "transparent",
+      color: "#000",
     },
   },
 }));

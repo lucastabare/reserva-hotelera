@@ -8,6 +8,7 @@ import {
   makeStyles,
   createMuiTheme,
 } from "@material-ui/core/styles";
+import Footer from "./components/Footer";
 
 function App() {
   const theme = createMuiTheme();
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/search" element={<SearchPage />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
