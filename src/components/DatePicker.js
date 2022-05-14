@@ -43,6 +43,7 @@ const styles = makeStyles((theme) => ({
     position: "absolute",
     top: "13vh",
     left: "30vw",
+    zIndex: "50",
     [theme.breakpoints.down("sm")]: {
       top: "16vh",
       left: "10vw",

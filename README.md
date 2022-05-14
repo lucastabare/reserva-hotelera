@@ -5,3 +5,4 @@
 - Instalar enrutador, react-router-dom.
 - Trabajamos en el Header: funciones displaDesktop() y displayMobile()
 - Trabajamos en el HomePage : componente: Date, Banner, RoomCard
+-
