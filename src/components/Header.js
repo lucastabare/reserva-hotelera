@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [mobile, setMobile] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const classes = useStyle();
+  const classes = styles();
 
   useEffect(() => {
     const resposibe = () =>
@@ -110,7 +110,7 @@ const Header = () => {
 };
 
 //Estilos:
-const useStyle = makeStyles((theme) => ({
+const styles = makeStyles((theme) => ({
   root: {
     position: "sticky",
     top: 0,

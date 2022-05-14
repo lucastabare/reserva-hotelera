@@ -5,7 +5,7 @@ import RoomCard from "./RoomCard";
 import Date from "./DatePicker";
 
 const Home = () => {
-  const classes = useStyles();
+  const classes = styles();
 
   return (
     <>
@@ -26,7 +26,7 @@ const Home = () => {
   );
 };
 //Estilos
-const useStyles = makeStyles((theme) => {
+const styles = makeStyles((theme) => {
   root: {
   }
 });
