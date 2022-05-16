@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import { Typography, Chip, Slider } from "@material-ui/core";
-import { chips } from "../mockData";
+import mockData, { chips } from "../mockData";
 //import { useState } from "react";
 import Result from "./Result";
 
@@ -43,7 +43,20 @@ const SearchPage = () => {
           color="secondary"
         />
       </div>
-      <Result />
+      {mockData
+        .filter((data) => data.cat === "room")
+        .map(({ src, title, description, stock, price }, index) => {
+          return (
+            <Result
+              title={title}
+              key={index}
+              src={src}
+              description={description}
+              price={price}
+              stock={stock}
+            />
+          );
+        })}
     </div>
   );
 };
