@@ -1,10 +1,17 @@
 import { makeStyles } from "@material-ui/styles";
-import { Typography, Chip } from "@material-ui/core";
+import { Typography, Chip, Slider } from "@material-ui/core";
 import { chips } from "../mockData";
-import { HighlightOffIcon } from "'@mui/material'";
+//import { useState } from "react";
+import Result from "./Result";
 
 const SearchPage = () => {
   const classes = useStyles();
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
+
+  //const value = useState("false");
+  const handleChange = () => {};
 
   return (
     <div className={classes.root}>
@@ -12,21 +19,31 @@ const SearchPage = () => {
         Habitaciones Disponibles
       </Typography>
       <div className={classes.chips}>
-        {chips.map((data) => {
-          let icon = <HighlightOffIcon />;
+        {chips.map(({ key, label }) => {
           return (
             <Chip
-              label={data.label}
-              key={data.key}
-              icon={icon}
+              label={label}
+              key={key}
               variant="outlined"
               className={classes.chip}
-              // onClick={handleClick}
-              // onDelete={handleDelete}
+              onDelete={handleDelete}
             />
           );
         })}
       </div>
+      <div className={classes.selector}>
+        <Typography gutterBottom>Precios</Typography>
+        <Slider
+          //value={value}
+          onChange={handleChange}
+          aria-labelledby="continuous-slider"
+          min={8000}
+          max={20000}
+          valueLabelDisplay="auto"
+          color="secondary"
+        />
+      </div>
+      <Result />
     </div>
   );
 };
@@ -34,5 +51,15 @@ const SearchPage = () => {
 //Estilos
 const useStyles = makeStyles((theme) => ({
   root: {},
+  chips: {
+    padding: theme.spacing(1),
+  },
+  chip: {
+    margin: theme.spacing(1),
+  },
+  selector: {
+    width: "300px",
+    margin: theme.spacing(3),
+  },
 }));
 export default SearchPage;

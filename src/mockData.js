@@ -76,10 +76,10 @@ const mockData = [
 ];
 
 export const chips = [
-  { key: e, label: "Cancellation Flexibility" },
-  { key: 1, label: "Standard rooms" },
-  { key: 2, label: "Executive rooms" },
-  { key: 3, label: "Access to lounge" },
-  { key: 4, label: "more filters" },
+  { key: 0, label: "Flexibilidad de cancelación" },
+  { key: 1, label: "Habitaciones estándar" },
+  { key: 2, label: "Habitaciones ejecutivas" },
+  { key: 3, label: "Acceso al salón" },
+  { key: 4, label: "más filtros" },
 ];
 export default mockData;
