@@ -1,5 +1,7 @@
 import { Typography, Button, makeStyles } from "@material-ui/core";
 import imgFondo from "../assets/imgFondo.jpg";
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   const classes = useStyles();
 
@@ -7,7 +9,9 @@ const Banner = () => {
     <div className={classes.root}>
       <div className={classes.info}>
         <Typography variant="h2">Planifica tu escapada</Typography>
-        <Button variant="contained">Consulta nuestras habitaciones</Button>
+        <Link style={{ textDecoration: "none" }} to="/search">
+          <Button variant="contained">Consulta nuestras habitaciones</Button>
+        </Link>
       </div>
     </div>
   );

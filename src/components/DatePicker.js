@@ -6,17 +6,26 @@ import { makeStyles } from "@material-ui/styles";
 import { InputBase, Typography, Button } from "@material-ui/core";
 import { People } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
-
-const selectionRange = {
-  startDate: new Date(),
-  endDate: new Date(),
-  key: "selection",
-};
+import { useSelector, useDispatch } from "react-redux";
+import { setStart, selectStart } from "../features/startSlice";
+import { setEnd, selectEnd } from "../features/endSlice";
 
 const DatePicker = () => {
   const classes = styles();
-  const handleSelect = () => {};
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const start = useSelector(selectStart);
+  const end = useSelector(selectEnd);
+  const selectionRange = {
+    startDate: start,
+    endDate: end,
+    key: "selection",
+  };
+  const handleSelect = (ranges) => {
+    //console.log(ranges);
+    dispatch(setStart(ranges.selection.startDate.getTime()));
+    dispatch(setEnd(ranges.selection.endDate.getTime()));
+  };
 
   return (
     <div className={classes.root}>
